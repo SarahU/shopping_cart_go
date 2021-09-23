@@ -5,5 +5,13 @@ type shoppingcart struct {
 }
 
 func (shopping_cart *shoppingcart) getTotal() int{
-    return 0
+    return shopping_cart.total
+}
+
+func (shopping_cart *shoppingcart) addItem(
+    itemName string,
+    quantity int,
+    cost int){
+
+    shopping_cart.total = cost
 }
