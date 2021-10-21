@@ -65,5 +65,16 @@ func TestShoppingCart(t *testing.T) {
 		}
 	})
 
+    t.Run("shopping cart total = 130 for 3 apples", func(t *testing.T) {
+		cart := ShoppingCart{0}
+
+		cart.addItem("Apple", 3, 50)
+
+		total := cart.getTotal()
+
+		if total != 130 {
+			t.Errorf("expected %d received %d", 130, total)
+		}
+	})
 
 }
