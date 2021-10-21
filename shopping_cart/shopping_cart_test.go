@@ -11,7 +11,7 @@ func TestShoppingCart(t *testing.T) {
 		total := cart.getTotal()
 
 		if total != 0 {
-			t.Errorf("expected %q received %q", 0, total)
+			t.Errorf("expected %d received %d", 0, total)
 		}
 	})
 
@@ -35,7 +35,7 @@ func TestShoppingCart(t *testing.T) {
 		total := cart.getTotal()
 
 		if total != 50 {
-			t.Errorf("expected %q received %q", 0, total)
+			t.Errorf("expected %d received %d", 0, total)
 		}
 	})
 
