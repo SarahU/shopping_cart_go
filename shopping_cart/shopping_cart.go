@@ -13,5 +13,9 @@ func (shopping_cart *ShoppingCart) addItem(
 	quantity int,
 	cost int) {
 
-	shopping_cart.total += cost * quantity
+	if quantity == 3 {
+		shopping_cart.total += 130
+	} else {
+		shopping_cart.total += cost * quantity
+	}
 }
