@@ -72,8 +72,8 @@ func TestShoppingCart(t *testing.T) {
 
 		total := cart.getTotal()
 
-		if total != 90 {
-			t.Errorf("expected %d received %d", 90, total)
+		if total != 75 {
+			t.Errorf("expected %d received %d", 75, total)
 		}
 	})
 
