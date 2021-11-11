@@ -56,7 +56,7 @@ func TestShoppingCart(t *testing.T) {
 	t.Run("shopping cart total = 75 for 3 bananas", func(t *testing.T) {
 		cart := ShoppingCart{0}
 
-		cart.addItem("Banana", 3, 75)
+		cart.addItem("Banana", 3, 30)
 
 		total := cart.getTotal()
 
