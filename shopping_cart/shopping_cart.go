@@ -4,6 +4,22 @@ type ShoppingCart struct {
 	total int
 }
 
+// catalogue
+// banana -> promotion
+// catalogue[string]Promotion
+// Promotion: (name, quantity, special price)
+
+type Promotion struct {
+	itemName     string
+	quantity     int
+	specialPrice int
+}
+
+var catalogue map[string]Promotion = map[string]Promotion{
+	"Apple":  {"Apple", 3, 130},
+	"Banana": {"Banana", 2, 45},
+}
+
 func (shopping_cart *ShoppingCart) getTotal() int {
 	return shopping_cart.total
 }
@@ -13,22 +29,13 @@ func (shopping_cart *ShoppingCart) addItem(
 	quantity int,
 	cost int) {
 
-	if quantity >= 3 && itemName == "Apple" {
-		specials := quantity / 3
-		regular := quantity % 3
+	promotion := catalogue[itemName]
 
-		specials_price := 130 * specials
-		regular_price := cost * regular
+	if quantity >= promotion.quantity {
+		specials := quantity / promotion.quantity
+		regular := quantity % promotion.quantity
 
-		shopping_cart.total = specials_price + regular_price
-		return
-	}
-
-	if itemName == "Banana" && quantity >= 2 {
-		specials := quantity / 2
-		regular := quantity % 2
-
-		specials_price := 45 * specials
+		specials_price := promotion.specialPrice * specials
 		regular_price := cost * regular
 
 		shopping_cart.total = specials_price + regular_price
