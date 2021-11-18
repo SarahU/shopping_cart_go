@@ -53,7 +53,7 @@ func TestShoppingCart(t *testing.T) {
 		}
 	})
 
-	t.Run("shopping cart total = 75 for 3 bananas", func(t *testing.T) {
+	t.Run("shopping cart total = 75 for 3 bananas - special", func(t *testing.T) {
 		cart := ShoppingCart{0}
 
 		cart.addItem("Banana", 3, 30)
@@ -65,7 +65,7 @@ func TestShoppingCart(t *testing.T) {
 		}
 	})
 
-	t.Run("shopping cart total = 130 for 3 apples", func(t *testing.T) {
+	t.Run("shopping cart total = 130 for 3 apples - special", func(t *testing.T) {
 		cart := ShoppingCart{0}
 
 		cart.addItem("Apple", 3, 50)
@@ -77,4 +77,15 @@ func TestShoppingCart(t *testing.T) {
 		}
 	})
 
+	t.Run("2 apple specials", func(t * testing.T){
+	    cart := ShoppingCart{0}
+
+	    cart.addItem("Apple", 6, 50)
+
+	    total := cart.getTotal()
+
+        if total != 260 {
+        	t.Errorf("expected %d received %d", 260, total)
+        }
+	})
 }
