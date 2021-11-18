@@ -32,13 +32,13 @@ func (shopping_cart *ShoppingCart) addItem(
 	promotion := catalogue[itemName]
 
 	if quantity >= promotion.quantity {
-		specials := quantity / promotion.quantity
-		regular := quantity % promotion.quantity
+		specialsCount := quantity / promotion.quantity
+		regularsCount := quantity % promotion.quantity
 
-		specials_price := promotion.specialPrice * specials
-		regular_price := cost * regular
+		specialsPrice := promotion.specialPrice * specialsCount
+		regularsPrice := cost * regularsCount
 
-		shopping_cart.total = specials_price + regular_price
+		shopping_cart.total = specialsPrice + regularsPrice
 		return
 	}
 
